@@ -1,0 +1,26 @@
+#!/bin/bash
+# Author: George Ashworth
+# 5/31/23
+# Program changes between multiple versions of video game soundtrack.
+    # Target directory is hardcoded, update USERNAME with local user.
+    # Format of the soundtrack directories is FOLDERNAME_ST
+
+
+current_version=( `cat "flag_file.txt" `)
+
+echo "Current version: $current_version"
+
+read -p "Input soundtrack version: " new_version
+
+if [ -d "${new_version}_ST" ]; then
+    cp -r "${new_version}_ST/"* "/Users/USERNAME/Library/Application Support/OpenEmu/Game Library/roms/Super Nintendo (SNES)/aLttP_HiFi"
+    echo "${new_version}_ST Copied."
+    echo "$new_version" > flag_file.txt
+else
+    echo "No files copied."
+fi
+
+## Possible TODO ##
+# Use applescript to close the Terminal window after completion.
+# Doesn't work so hot right now. Still have to hit enter.
+# osascript -e "tell application \"System Events\" to keystroke \"q\" using command down"
