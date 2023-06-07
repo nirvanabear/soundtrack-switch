@@ -3,15 +3,21 @@
 # 5/31/23
 # Program changes between multiple versions of video game soundtrack.
     # Target directory is hardcoded, update USERNAME with local user.
+    # Update with local directory where soundtracks and script is
+    # stored.
     # Format of the soundtrack directories is FOLDERNAME_ST
+# Use script from the mac dock by:
+    # Change suffix to .app
+    # Drag to dock
+    # Remove suffix
 
+cd /Users/USERNAME/filepath/to/directory/with/soundtrack-switch
 
 current_version=( `cat "flag_file.txt" `)
 
 echo "Current version: $current_version"
 
 read -p "Input soundtrack version: " new_version
-
 if [ -d "${new_version}_ST" ]; then
     cp -r "${new_version}_ST/"* "/Users/USERNAME/Library/Application Support/OpenEmu/Game Library/roms/Super Nintendo (SNES)/aLttP_HiFi"
     echo "${new_version}_ST Copied."
