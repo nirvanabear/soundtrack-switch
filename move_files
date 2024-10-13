@@ -11,7 +11,7 @@
     # Drag to dock
     # Remove suffix
 
-cd /Users/USERNAME/filepath/to/directory/with/soundtrack-switch
+cd /Users/nirvanabear/Documents/code/Small_Projects/soundtrack-switch
 
 current_version=( `cat "flag_file.txt" `)
 
@@ -19,7 +19,7 @@ echo "Current version: $current_version"
 
 read -p "Input soundtrack version: " new_version
 if [ -d "${new_version}_ST" ]; then
-    cp -r "${new_version}_ST/"* "/Users/USERNAME/Library/Application Support/OpenEmu/Game Library/roms/Super Nintendo (SNES)/aLttP_HiFi"
+    cp -r "${new_version}_ST/"* "/Users/nirvanabear/Library/Application Support/OpenEmu/Game Library/roms/Super Nintendo (SNES)/aLttP_HiFi"
     echo "${new_version}_ST Copied."
     echo "$new_version" > flag_file.txt
 else
